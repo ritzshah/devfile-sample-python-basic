@@ -2,7 +2,7 @@ apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
   annotations:
-    build.appstudio.openshift.io/repo: https://github.com/ritzshah/devfile-sample-python-basic?rev={{revision}}
+    build.appstudio.openshift.io/repo: https://github.com/ritzshah/sample-python-basic?rev={{revision}}
     build.appstudio.redhat.com/commit_sha: '{{revision}}'
     build.appstudio.redhat.com/target_branch: '{{target_branch}}'
     pipelinesascode.tekton.dev/max-keep-runs: "3"
@@ -10,10 +10,10 @@ metadata:
     pipelinesascode.tekton.dev/on-target-branch: '[main]'
   creationTimestamp: null
   labels:
-    appstudio.openshift.io/application: devfile-sample-python-basic
-    appstudio.openshift.io/component: devfile-sample-python-basic
+    appstudio.openshift.io/application: sample-python-basic
+    appstudio.openshift.io/component: sample-python-basic
     pipelines.appstudio.openshift.io/type: build
-  name: devfile-sample-python-basic-on-push
+  name: sample-python-basic-on-push
   namespace: rshah-tenant
 spec:
   params:
@@ -22,7 +22,7 @@ spec:
   - name: git-url
     value: '{{repo_url}}'
   - name: output-image
-    value: quay.io/redhat-user-workloads/rshah-tenant/devfile-sample-python-basic/devfile-sample-python-basic:{{revision}}
+    value: quay.io/redhat-user-workloads/rshah-tenant/sample-python-basic/sample-python-basic:{{revision}}
   - name: path-context
     value: .
   - name: revision
